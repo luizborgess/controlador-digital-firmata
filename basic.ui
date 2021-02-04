@@ -243,7 +243,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="set">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -256,7 +256,7 @@
      <string>Set</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="clear">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -269,7 +269,7 @@
      <string>Clear</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="start">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -282,7 +282,7 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="reset">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -295,7 +295,7 @@
      <string>Reset</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="refresh">
     <property name="geometry">
      <rect>
       <x>220</x>
