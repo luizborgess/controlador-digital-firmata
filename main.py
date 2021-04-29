@@ -1,38 +1,39 @@
+# utilizar pyinstaller
 from PyQt5 import QtWidgets, QtCore, uic
 from pyqtgraph import PlotWidget, plot
 import pyqtgraph as pg
-import sys  
+import sys
 import os
 import random
-from pyfirmata import Arduino, util, INPUT,OUTPUT
-import serial.tools.list_ports
+
+import Graph
+from Arduino import Arduino
+
 
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
+        # string array para portas COM
+        self.COMports = []
 
-
-        #self.setStyleSheet("background-color: white;")
+        # self.setStyleSheet("background-color: white;")
         uic.loadUi('basic.ui', self)
-        #self.graphWidget = pg.PlotWidget()
-        #self.setCentralWidget(self.graphWidget)
+        # self.graphWidget = pg.PlotWidget()
+        # self.setCentralWidget(self.graphWidget)
 
         # button connect pointer
-        #self.connect = self.findChild(QtWidgets.QPushButton, 'connect')  # Find the button
+        # self.connect = self.findChild(QtWidgets.QPushButton, 'connect')  # Find the button
         # combobox pointer
-        #self.listport = self.findChild(QtWidgets.QComboBox, 'listport')
+        # self.listport = self.findChild(QtWidgets.QComboBox, 'listport')
 
-        ports = list(serial.tools.list_ports.comports())
-        for p in ports:
-            self.listport.addItem(p[1])
-
+        Arduino.get_ports(self)
 
         # actions
-        self.connect.clicked.connect(self.arduino)
+        self.connect.clicked.connect(lambda: Arduino.defineBoard(self))
         self.start.clicked.connect(self.graph)
-
+        self.refresh.clicked.connect(lambda: Arduino.update_ports(self))
 
     def graph(self):
         self.x = list(range(50))
@@ -47,26 +48,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.timer.timeout.connect(self.update_plot_data)
         self.timer.start()
 
-
-
-    def arduino(self):
-        self.connect.setEnabled(False)
-        self.board = Arduino("COM3")  # change com port
-        print("Communication Successfully started")
-        self.board.analog[0].mode = INPUT
-        self.board.digital[2].mode=OUTPUT
-        self.board.digital[2].write(1)
-
-        self.it = util.Iterator(self.board)
-        self.it.start()
-
     def update_plot_data(self):
-        self.x = self.x[1:] 
-        self.x.append(self.x[-1] + 1)  
+        self.x = self.x[1:]
+        self.x.append(self.x[-1] + 1)
 
-        self.y = self.y[1:] 
+        self.y = self.y[1:]
         self.y.append(self.board.analog[0].read())
-        #self.y.append(randint(0, 100))  
+        # self.y.append(randint(0, 100))
 
         self.data_line.setData(self.x, self.y)
 
