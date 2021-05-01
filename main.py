@@ -5,8 +5,7 @@ import pyqtgraph as pg
 import sys
 import os
 import random
-
-import Graph
+from Graph import DrawGraph
 from Arduino import Arduino
 
 
@@ -29,34 +28,37 @@ class MainWindow(QtWidgets.QMainWindow):
         # self.listport = self.findChild(QtWidgets.QComboBox, 'listport')
 
         Arduino.get_ports(self)
-
+        DrawGraph.initialGraph(self)
         # actions
         self.connect.clicked.connect(lambda: Arduino.defineBoard(self))
-        self.start.clicked.connect(self.graph)
+        self.start.clicked.connect(lambda: DrawGraph.graph(self))
         self.refresh.clicked.connect(lambda: Arduino.update_ports(self))
 
-    def graph(self):
-        self.x = list(range(50))
-        self.y = [random.random() for _ in range(50)]
-        self.graphWidget.setLimits(xMin=0, yMin=0, yMax=1)
-        self.graphWidget.enableAutoRange(axis='y', enable=False)
-        self.graphWidget.setBackground('w')
-        pen = pg.mkPen(color=(255, 0, 0))
-        self.data_line = self.graphWidget.plot(self.x, self.y, pen=pen)
-        self.timer = QtCore.QTimer()
-        self.timer.setInterval(200)
-        self.timer.timeout.connect(self.update_plot_data)
-        self.timer.start()
+    #def graph(cls): return DrawGraph.graph(cls)
+    #def update_plot_data(self): return DrawGraph.update_plot_data(self)
 
-    def update_plot_data(self):
-        self.x = self.x[1:]
-        self.x.append(self.x[-1] + 1)
+    #def graph(self):
+    #    self.x = list(range(50))
+    #    self.y = [random.random() for _ in range(50)]
+    #    self.graphWidget.setLimits(xMin=0, yMin=0, yMax=1)
+    #    self.graphWidget.enableAutoRange(axis='y', enable=False)
+    #    self.graphWidget.setBackground('w')
+    #    pen = pg.mkPen(color=(255, 0, 0))
+    #    self.data_line = self.graphWidget.plot(self.x, self.y, pen=pen)
+    #    self.timer = QtCore.QTimer()
+    #    self.timer.setInterval(200)
+    #    self.timer.timeout.connect(self.update_plot_data)
+    #    self.timer.start()
 
-        self.y = self.y[1:]
-        self.y.append(self.board.analog[0].read())
-        # self.y.append(randint(0, 100))
-
-        self.data_line.setData(self.x, self.y)
+    #def update_plot_data(self):
+    #    self.x = self.x[1:]
+    #    self.x.append(self.x[-1] + 1)
+#
+#        self.y = self.y[1:]
+#        self.y.append(self.board.analog[0].read())
+#        # self.y.append(randint(0, 100))
+#
+#        self.data_line.setData(self.x, self.y)
 
 
 app = QtWidgets.QApplication(sys.argv)

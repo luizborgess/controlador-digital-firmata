@@ -2,13 +2,13 @@ from pyfirmata import Arduino as Ard
 from pyfirmata import util, INPUT, OUTPUT
 import serial.tools.list_ports
 
-
 class Arduino:
 
     def get_ports(self):
         ports = list(serial.tools.list_ports.comports())
 
         for i, p in enumerate(ports):
+            print(p[0],p[1])
             self.listport.addItem(p[1])
             self.COMports.append(p[0])
             if "Arduino" in p[1]:
