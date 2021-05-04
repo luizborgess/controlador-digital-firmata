@@ -1,5 +1,5 @@
 from pyfirmata import Arduino as Ard
-from pyfirmata import util, INPUT, OUTPUT
+from pyfirmata import util, INPUT, OUTPUT, PWM
 import serial.tools.list_ports
 
 
@@ -27,14 +27,21 @@ class Arduino:
                                     "}")
         self.checkBox.setEnabled(True)
 
-        # define ports
-        self.board.analog[0].mode = INPUT
-        self.board.digital[13].mode = OUTPUT
-        self.board.digital[2].mode = OUTPUT
 
-        self.board.digital[2].write(1)
         self.it = util.Iterator(self.board)
         self.it.start()
 
+    #set_1 define ports
     def define_ports(self):
-        print('placeholder')
+        self.analogPort=self.textBox1.text()
+        self.pwmPort=self.textBox2.text()
+        #time in mili seconds
+        self.sampleTime=self.textBox3.text()
+
+        print("analog port:",self.analogPort)
+        print("Pwm port",self.pwmPort)
+        print("Sample Time", self.sampleTime)
+
+        self.board.analog[int(self.analogPort)].mode = INPUT
+        self.board.digital[int(self.pwmPort)].mode = PWM
+

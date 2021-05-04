@@ -7,7 +7,7 @@ import os
 import random
 from Graph import DrawGraph
 from Arduino import Arduino
-
+from Control import Control
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -28,7 +28,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.connect.clicked.connect(lambda: Arduino.define_board(self))
         self.start.clicked.connect(lambda: DrawGraph.graph(self))
         self.refresh.clicked.connect(lambda: Arduino.get_ports(self))
-
+        self.set_1.clicked.connect(lambda: Arduino.define_ports(self))
+        self.radioButton.toggled.connect(lambda: Control.on_clicked(self))
+        self.set_3.clicked.connect(lambda: Control.open_loop(self))
 
 app = QtWidgets.QApplication(sys.argv)
 w = MainWindow()
