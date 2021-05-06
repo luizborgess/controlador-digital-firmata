@@ -33,15 +33,15 @@ class Arduino:
 
     #set_1 define ports
     def define_ports(self):
-        self.analogPort=self.textBox1.text()
-        self.pwmPort=self.textBox2.text()
+        self.analogPort=int(self.textBox1.text())
+        self.pwmPort=int(self.textBox2.text())
         #time in mili seconds
-        self.sampleTime=self.textBox3.text()
+        self.sampleTime=float(self.textBox3.text())
 
         print("analog port:",self.analogPort)
         print("Pwm port",self.pwmPort)
         print("Sample Time", self.sampleTime)
 
-        self.board.analog[int(self.analogPort)].mode = INPUT
-        self.board.digital[int(self.pwmPort)].mode = PWM
+        self.board.analog[self.analogPort].mode = INPUT
+        self.board.digital[self.pwmPort].mode = PWM
 

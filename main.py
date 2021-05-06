@@ -9,6 +9,7 @@ from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
 
+
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
@@ -30,7 +31,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh.clicked.connect(lambda: Arduino.get_ports(self))
         self.set_1.clicked.connect(lambda: Arduino.define_ports(self))
         self.radioButton.toggled.connect(lambda: Control.on_clicked(self))
+        self.radioButton_2.toggled.connect(lambda: Control.on_clicked_2(self))
         self.set_3.clicked.connect(lambda: Control.open_loop(self))
+        self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
+
 
 app = QtWidgets.QApplication(sys.argv)
 w = MainWindow()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1181</width>
-    <height>616</height>
+    <width>1227</width>
+    <height>683</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -176,7 +176,7 @@
      <string>Proportional</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="textBox5">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -196,7 +196,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>460</y>
+      <y>490</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -205,14 +205,14 @@
      <string>Derivative</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="textBox7">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>460</y>
+      <y>490</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -225,7 +225,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>490</y>
+      <y>460</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -234,14 +234,14 @@
      <string>Integrator</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
+   <widget class="QLineEdit" name="textBox6">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>490</y>
+      <y>460</y>
       <width>31</width>
       <height>20</height>
      </rect>
@@ -277,7 +277,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>540</y>
+      <y>620</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -304,8 +304,8 @@
      <rect>
       <x>330</x>
       <y>40</y>
-      <width>781</width>
-      <height>521</height>
+      <width>871</width>
+      <height>551</height>
      </rect>
     </property>
    </widget>
@@ -374,22 +374,6 @@
      <string>OpenLoop Gain</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>350</y>
-      <width>160</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="textBox4">
     <property name="enabled">
      <bool>false</bool>
@@ -435,11 +419,11 @@
      <string>Clear</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="stop">
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>540</y>
+      <y>620</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -448,11 +432,11 @@
      <string>Stop</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pause">
     <property name="geometry">
      <rect>
       <x>110</x>
-      <y>540</y>
+      <y>620</y>
       <width>71</width>
       <height>31</height>
      </rect>
@@ -475,6 +459,35 @@
     </property>
     <property name="text">
      <string>Set</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="textBox8">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>520</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>520</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Set Point</string>
     </property>
    </widget>
   </widget>

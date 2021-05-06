@@ -12,32 +12,74 @@ class Control:
         if self.radioButton.isChecked():
             self.label_10.setEnabled(True)
             self.textBox4.setEnabled(True)
-            self.horizontalSlider.setEnabled(True)
             self.set_3.setEnabled(True)
             self.label_6.setEnabled(False)
             self.label_7.setEnabled(False)
-            self.lineEdit_4.setEnabled(False)
+            self.textBox5.setEnabled(False)
             self.label_8.setEnabled(False)
-            self.lineEdit_5.setEnabled(False)
+            self.textBox6.setEnabled(False)
             self.label_9.setEnabled(False)
-            self.lineEdit_6.setEnabled(False)
+            self.textBox7.setEnabled(False)
             self.set_2.setEnabled(False)
             self.clear_2.setEnabled(False)
+            self.label_11.setEnabled(False)
+            self.textBox8.setEnabled(False)
+
+    def on_clicked_2(self):
         if self.radioButton_2.isChecked():
             self.label_10.setEnabled(False)
-            self.lineEdit_7.setEnabled(False)
-            self.horizontalSlider.setEnabled(False)
+            self.textBox4.setEnabled(False)
             self.set_3.setEnabled(False)
             self.label_6.setEnabled(True)
             self.label_7.setEnabled(True)
-            self.lineEdit_4.setEnabled(True)
+            self.textBox5.setEnabled(True)
             self.label_8.setEnabled(True)
-            self.lineEdit_5.setEnabled(True)
+            self.textBox6.setEnabled(True)
             self.label_9.setEnabled(True)
-            self.lineEdit_6.setEnabled(True)
+            self.textBox7.setEnabled(True)
             self.set_2.setEnabled(True)
             self.clear_2.setEnabled(True)
+            self.label_11.setEnabled(True)
+            self.textBox8.setEnabled(True)
 
     def open_loop(self):
-        self.pwmValue=self.textBox4.text()
+        self.pwmValue = self.textBox4.text()
         self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
+
+    def set_PIDparams(self):
+        self.kp = float(self.textBox5.text())
+        self.ki = float(self.textBox6.text())
+        self.kd = float(self.textBox7.text())
+        self.sp = float(self.textBox8.text())
+        self.p = None
+        self.i = float(0)
+        self.d = float(0)
+        self.error_anterior = float(0)
+
+    def PID_calc(self):
+        pv = self.board.analog[self.analogPort].read()
+        self.error= (self.sp - pv)
+        print('error:',self.error)
+        # proportional calc
+        self.p = self.kp * self.error
+
+        # Integrative calc
+        self.i = self.i + (self.ki * (self.sampleTime / 2) * (self.error + self.error_anterior))
+
+        # Derivative calc
+        self.d = ((self.error - self.error_anterior) * self.kd) / self.sampleTime
+
+        # integrative max value
+        if self.i > 100: self.i = 100
+        if self.i < 0: self.i = 0
+
+        # output max value
+        pidsum = self.p + self.i + self.d
+        if (pidsum) > 100: self.output = 100
+
+        elif (pidsum) < 0: self.output = 0
+
+        else: self.output = pidsum
+
+        print('output: ',self.output,'p:',self.p,'i: ',self.i,'d: ',self.d)
+        self.error_anterior = self.error
