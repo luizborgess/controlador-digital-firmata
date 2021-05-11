@@ -9,6 +9,11 @@ from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
 
+try:
+    os.chdir(sys._MEIPASS)
+except:
+    pass
+
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -16,6 +21,7 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
 
         # self.setStyleSheet("background-color: white;")
+
         uic.loadUi('GUI_en.ui', self)
         # self.graphWidget = pg.PlotWidget()
         # self.setCentralWidget(self.graphWidget)
@@ -35,8 +41,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.set_3.clicked.connect(lambda: Control.open_loop(self))
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
 
-
-app = QtWidgets.QApplication(sys.argv)
-w = MainWindow()
-w.show()
-sys.exit(app.exec_())
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    w = MainWindow()
+    w.show()
+    sys.exit(app.exec_())
