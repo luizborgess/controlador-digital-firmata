@@ -1,14 +1,12 @@
-# utilizar pyinstaller
 from PyQt5 import QtWidgets, QtCore, uic
-from pyqtgraph import PlotWidget, plot
-import pyqtgraph as pg
 import sys
 import os
-import random
 from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
+import json
 
+# define main path for pyinstaller
 try:
     os.chdir(sys._MEIPASS)
 except:
@@ -20,14 +18,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
-        # self.setStyleSheet("background-color: white;")
-
         uic.loadUi('GUI_en.ui', self)
-        # self.graphWidget = pg.PlotWidget()
-        # self.setCentralWidget(self.graphWidget)
-
-        # button connect pointer
-        # self.connect = self.findChild(QtWidgets.QPushButton, 'connect')
 
         Arduino.get_ports(self)
         DrawGraph.initial_graph(self)
@@ -40,6 +31,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.radioButton_2.toggled.connect(lambda: Control.on_clicked_2(self))
         self.set_3.clicked.connect(lambda: Control.open_loop(self))
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
+        self.clear.clicked.connect(lambda: Arduino.clear_1(self))
+
+        # load software config
+        with open('Settings.json', 'r') as json_file:
+            self.data = json.load(json_file)
+        self.textBox1.setText(self.data['AnalogPort'])
+        self.textBox2.setText(self.data['PwmPort'])
+        self.textBox3.setText(self.data['SampleTime'])
+        json_file.close()
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
