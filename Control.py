@@ -45,6 +45,7 @@ class Control:
     def open_loop(self):
         self.pwmValue = self.textBox4.text()
         self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
+        self.label_13.setText('Gain: '+str(self.pwmValue))
 
     def set_PIDparams(self):
         self.kp = float(self.textBox5.text())
@@ -55,6 +56,8 @@ class Control:
         self.i = float(0)
         self.d = float(0)
         self.error_anterior = float(0)
+
+        self.label_17.setText("SP: "+str(self.sp))
 
     def PID_calc(self):
         pv = self.board.analog[self.analogPort].read()
@@ -82,4 +85,9 @@ class Control:
         else: self.output = pidsum
 
         print('output: ',self.output,'p:',self.p,'i: ',self.i,'d: ',self.d)
+        self.label_13.setText('Gain: '+str(round(self.output,5)))
+        self.label_14.setText('P: '+str(round(self.p,5)))
+        self.label_15.setText('I: ' + str(round(self.i,5)))
+        self.label_16.setText('D: ' + str(round(self.d,5)))
+
         self.error_anterior = self.error

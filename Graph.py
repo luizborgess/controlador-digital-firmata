@@ -1,5 +1,4 @@
 import pyqtgraph as pg
-import random
 from PyQt5 import QtCore
 from UpdateGraph import UpdateGraph
 
