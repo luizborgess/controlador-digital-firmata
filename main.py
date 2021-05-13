@@ -32,7 +32,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.set_3.clicked.connect(lambda: Control.open_loop(self))
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
         self.clear.clicked.connect(lambda: Arduino.clear_1(self))
-
+        self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
         # load software config
         with open('Settings.json', 'r') as json_file:
             self.data = json.load(json_file)

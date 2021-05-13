@@ -9,13 +9,13 @@ class UpdateGraph:
         self.y = self.y[1:]
 
         # process variable =self.board.analog[self.analogPort].read()
-        mv_value=self.board.analog[self.analogPort].read()
+        mv_value = self.board.analog[self.analogPort].read()
         self.y.append(mv_value)
 
-        self.label_18.setText("MV: "+str(mv_value))
+        self.label_18.setText("MV: " + str(mv_value))
         self.data_line.setData(self.x, self.y)
 
-        #esse if nao esta bom, criar update plotdata especifico para pid
+        # esse if nao esta bom, criar update plotdata especifico para pid
         if self.radioButton_2.isChecked():
             Control.PID_calc(self)
             self.pwmValue = self.output / 100

@@ -1,11 +1,3 @@
-import pyqtgraph as pg
-import random
-from PyQt5 import QtCore
-
-from pyfirmata import Arduino as Ard
-from pyfirmata import util, INPUT, OUTPUT, PWM
-import serial.tools.list_ports
-
 
 class Control:
     def on_clicked(self):
@@ -45,7 +37,7 @@ class Control:
     def open_loop(self):
         self.pwmValue = self.textBox4.text()
         self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
-        self.label_13.setText('Gain: '+str(self.pwmValue))
+        self.label_13.setText('Gain: ' + str(self.pwmValue))
 
     def set_PIDparams(self):
         self.kp = float(self.textBox5.text())
@@ -57,12 +49,12 @@ class Control:
         self.d = float(0)
         self.error_anterior = float(0)
 
-        self.label_17.setText("SP: "+str(self.sp))
+        self.label_17.setText("SP: " + str(self.sp))
 
     def PID_calc(self):
         pv = self.board.analog[self.analogPort].read()
-        self.error= (self.sp - pv)
-        print('error:',self.error)
+        self.error = (self.sp - pv)
+        print('error:', self.error)
         # proportional calc
         self.p = self.kp * self.error
 
@@ -78,16 +70,18 @@ class Control:
 
         # output max value
         pidsum = self.p + self.i + self.d
-        if (pidsum) > 100: self.output = 100
+        if (pidsum) > 100:
+            self.output = 100
 
-        elif (pidsum) < 0: self.output = 0
+        elif (pidsum) < 0:
+            self.output = 0
 
-        else: self.output = pidsum
+        else:
+            self.output = pidsum
 
-        print('output: ',self.output,'p:',self.p,'i: ',self.i,'d: ',self.d)
-        self.label_13.setText('Gain: '+str(round(self.output,5)))
-        self.label_14.setText('P: '+str(round(self.p,5)))
-        self.label_15.setText('I: ' + str(round(self.i,5)))
-        self.label_16.setText('D: ' + str(round(self.d,5)))
+        self.label_13.setText('Gain: ' + str(round(self.output, 5)))
+        self.label_14.setText('P: ' + str(round(self.p, 5)))
+        self.label_15.setText('I: ' + str(round(self.i, 5)))
+        self.label_16.setText('D: ' + str(round(self.d, 5)))
 
         self.error_anterior = self.error

@@ -16,7 +16,7 @@ class DrawGraph:
         # self.y = [random.random() for _ in range(50)]
         self.y = list(range(50))
         self.graphWidget.setLimits(xMin=0, yMin=0, yMax=1)
-        self.graphWidget.enableAutoRange(axis='y', enable=False)
+        self.graphWidget.enableAutoRange(axis='x', enable=False)
         # self.graphWidget.setBackground('w')
         pen = pg.mkPen(color=(0, 136, 255), width=2)
         self.data_line = self.graphWidget.plot(self.x, self.y, pen=pen)
@@ -27,3 +27,6 @@ class DrawGraph:
         self.timer.timeout.connect(lambda: UpdateGraph.update_plot_data(self))
         self.timer.start()
 
+    def graph_pause(self):
+        self.timer.stop()
+        self.data_line.clear()
