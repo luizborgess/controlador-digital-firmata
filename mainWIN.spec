@@ -3,11 +3,15 @@
 
 block_cipher = None
 
+added_files = [
+         ( 'GUI_en.ui', '.' ),
+         ( 'Settings.json', '.' )
+         ]
 
 a = Analysis(['main.py'],
              pathex=['C:\\Users\\Luiz\\Desktop\\controlador-digital-firmata'],
              binaries=[],
-             datas=[("GUI_en.ui","Settings.json", ".")],
+             datas=[added_files],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],

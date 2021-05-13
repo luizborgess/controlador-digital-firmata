@@ -9,9 +9,9 @@ added_files = [
          ]
 
 a = Analysis(['main.py'],
-             pathex=['/Users/luizgustavo/Desktop/controlador-digital-firmata'],
+             pathex=['/home/luizgustavo/Área de Trabalho/controlador-digital-firmata'],
              binaries=[],
-             datas=[added_files],
+             datas=added_files,
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -31,7 +31,7 @@ exe = EXE(pyz,
           bootloader_ignore_signals=False,
           strip=False,
           upx=True,
-          console=False )
+          console=True )
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
@@ -40,19 +40,3 @@ coll = COLLECT(exe,
                upx=True,
                upx_exclude=[],
                name='main')
-app = BUNDLE(exe,
-         name='testApp.app',
-         icon='icon.icns',
-         bundle_identifier='com.youridentifier',
-         info_plist={
-            'NSPrincipalClass': 'NSApplication',
-            'NSAppleScriptEnabled': False,
-            'CFBundleDocumentTypes': [
-                {
-                    'CFBundleTypeName': 'My File Format',
-                    'LSItemContentTypes': ['com.example.myformat'],
-                    'LSHandlerRank': 'Owner'
-                    }
-                ]
-            },
-         )
