@@ -4,6 +4,7 @@ import os
 from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
+from jsonHandler import JsonHandler
 import json
 
 # define main path for pyinstaller
@@ -20,8 +21,13 @@ class MainWindow(QtWidgets.QMainWindow):
 
         uic.loadUi('GUI_en.ui', self)
 
+        # Load software config
+        JsonHandler.JsonRead(self)
+        # Load current ports
         Arduino.get_ports(self)
+        # Draw initial graph
         DrawGraph.initial_graph(self)
+
         # actions
         self.connect.clicked.connect(lambda: Arduino.define_board(self))
         self.start.clicked.connect(lambda: DrawGraph.graph(self))
@@ -33,14 +39,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
         self.clear.clicked.connect(lambda: Arduino.clear_1(self))
         self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
-        # load software config
-        with open('Settings.json', 'r') as json_file:
-            self.data = json.load(json_file)
-        self.textBox1.setText(self.data['AnalogPort'])
-        self.textBox2.setText(self.data['PwmPort'])
-        self.textBox3.setText(self.data['SampleTime'])
-        self.graphRange=self.data['GraphRange']
-        json_file.close()
 
 
 if __name__ == "__main__":

@@ -1,1 +1,1 @@
-{"AnalogPort": "0", "PwmPort": "3", "SampleTime": "500.0", "GraphRange": 50}
+{"AnalogPort": "0", "PwmPort": "3", "SampleTime": "200.0", "GraphRange": 20}

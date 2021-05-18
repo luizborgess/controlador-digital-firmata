@@ -1,4 +1,3 @@
-
 class Control:
     def on_clicked(self):
         if self.radioButton.isChecked():
@@ -16,7 +15,6 @@ class Control:
             self.clear_2.setEnabled(False)
             self.label_11.setEnabled(False)
             self.textBox8.setEnabled(False)
-
 
     def on_clicked_2(self):
         if self.radioButton_2.isChecked():
