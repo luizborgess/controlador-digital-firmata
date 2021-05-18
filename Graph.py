@@ -23,8 +23,11 @@ class DrawGraph:
         self.timer.setInterval(self.sampleTime)
         self.timer.timeout.connect(lambda: UpdateGraph.update_plot_data(self))
         self.timer.start()
-        self.Xm = np.array([])
+        self.y = np.array([])
+        #tempo
         self.temp = np.array([])
+
+        #plot position
         self.ptr = 0.0
 
     def graph_pause(self):

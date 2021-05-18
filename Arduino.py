@@ -1,7 +1,7 @@
 from pyfirmata import Arduino as Ard
 from pyfirmata import util, INPUT, OUTPUT, PWM
 import serial.tools.list_ports
-import json
+from jsonHandler import JsonHandler
 
 
 class Arduino:
@@ -37,8 +37,8 @@ class Arduino:
         self.pwmPort = int(self.textBox2.text())
         # time in mili seconds
         self.sampleTime = float(self.textBox3.text())
-        #Time in seconds
-        self.sampleTimeSec=self.sampleTime/1000
+        # Time in seconds
+        self.sampleTimeSec = self.sampleTime / 1000
 
         print("analog port:", self.analogPort)
         print("Pwm port", self.pwmPort)
@@ -48,12 +48,7 @@ class Arduino:
         self.board.digital[self.pwmPort].mode = PWM
 
         # update config
-        self.data['AnalogPort'] = str(self.analogPort)
-        self.data['PwmPort'] = str(self.pwmPort)
-        self.data['SampleTime'] = str(self.sampleTime)
-        with open('Settings.json', 'w+') as json_file:
-            json.dump(self.data, json_file, ensure_ascii=False)
-        json_file.close()
+        JsonHandler.update_json(self)
 
     def clear_1(self):
         self.textBox1.setText('')

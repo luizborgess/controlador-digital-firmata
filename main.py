@@ -1,11 +1,11 @@
-from PyQt5 import QtWidgets, QtCore, uic
+from PyQt5 import QtWidgets, uic
 import sys
 import os
 from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
 from jsonHandler import JsonHandler
-import json
+
 
 # define main path for pyinstaller
 try:
@@ -22,7 +22,7 @@ class MainWindow(QtWidgets.QMainWindow):
         uic.loadUi('GUI_en.ui', self)
 
         # Load software config
-        JsonHandler.JsonRead(self)
+        JsonHandler.json_read(self)
         # Load current ports
         Arduino.get_ports(self)
         # Draw initial graph
