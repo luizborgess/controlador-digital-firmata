@@ -37,6 +37,8 @@ class Arduino:
         self.pwmPort = int(self.textBox2.text())
         # time in mili seconds
         self.sampleTime = float(self.textBox3.text())
+        #Time in seconds
+        self.sampleTimeSec=self.sampleTime/1000
 
         print("analog port:", self.analogPort)
         print("Pwm port", self.pwmPort)
