@@ -393,7 +393,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>190</x>
       <y>410</y>
       <width>71</width>
       <height>31</height>
@@ -409,7 +409,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>190</x>
       <y>440</y>
       <width>71</width>
       <height>31</height>
@@ -579,6 +579,35 @@
     </property>
     <property name="text">
      <string>MV:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="enableCursor">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>610</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enable Cursor</string>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="updateSetPoint">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>470</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update SP</string>
     </property>
    </widget>
   </widget>

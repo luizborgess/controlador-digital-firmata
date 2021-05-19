@@ -38,6 +38,10 @@ class Control:
         self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
         self.label_13.setText('Gain: ' + str(self.pwmValue))
 
+    def update_setpoint(self):
+        self.sp = float(self.textBox8.text())
+        self.label_17.setText("SP: " + str(self.sp))
+
     def set_PIDparams(self):
         self.kp = float(self.textBox5.text())
         self.ki = float(self.textBox6.text())

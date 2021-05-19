@@ -39,6 +39,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
         self.clear.clicked.connect(lambda: Arduino.clear_1(self))
         self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
+        self.updateSetPoint.clicked.connect(lambda: Control.update_setpoint(self))
 
 
 if __name__ == "__main__":
