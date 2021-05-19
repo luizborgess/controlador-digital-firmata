@@ -5,7 +5,7 @@ from Graph import DrawGraph
 from Arduino import Arduino
 from Control import Control
 from jsonHandler import JsonHandler
-
+from UpdateGraph import UpdateGraph
 
 # define main path for pyinstaller
 try:
@@ -27,7 +27,6 @@ class MainWindow(QtWidgets.QMainWindow):
         Arduino.get_ports(self)
         # Draw initial graph
         DrawGraph.initial_graph(self)
-
         # actions
         self.connect.clicked.connect(lambda: Arduino.define_board(self))
         self.start.clicked.connect(lambda: DrawGraph.graph(self))
@@ -40,6 +39,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.clear.clicked.connect(lambda: Arduino.clear_1(self))
         self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
         self.updateSetPoint.clicked.connect(lambda: Control.update_setpoint(self))
+
+        #enable cursor
+        self.enableCursor.toggled.connect(lambda: DrawGraph.cursor(self))
+        #clear graph
+        self.clear_3.clicked.connect(lambda: DrawGraph.graph_clear(self))
+
+    # define call mouse update from update graph
+    mouse_update = UpdateGraph.mouse_update
 
 
 if __name__ == "__main__":

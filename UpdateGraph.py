@@ -37,3 +37,11 @@ class UpdateGraph:
             Control.PID_calc(self)
             self.pwmValue = self.output / 100
             self.board.digital[int(self.pwmPort)].write(self.pwmValue)
+
+    def mouse_update(self, e):
+        pos = e[0]
+        if self.graphWidget.sceneBoundingRect().contains(pos):
+            mousePoint = self.graphWidget.getPlotItem().vb.mapSceneToView(pos)
+            self.y_line.setPos(mousePoint.x())
+            self.x_line.setPos(mousePoint.y())
+            self.coordinates.setText(f'Coordinates X: {str(round(mousePoint.x(), 4))} Y: {str(round(mousePoint.y(), 4))}' )

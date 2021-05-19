@@ -419,7 +419,7 @@
      <string>Clear</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="stop">
+   <widget class="QPushButton" name="clear_3">
     <property name="geometry">
      <rect>
       <x>730</x>
@@ -429,7 +429,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Stop</string>
+     <string>Clear</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pause">
@@ -584,7 +584,7 @@
    <widget class="QRadioButton" name="enableCursor">
     <property name="geometry">
      <rect>
-      <x>1070</x>
+      <x>920</x>
       <y>610</y>
       <width>131</width>
       <height>20</height>
@@ -608,6 +608,19 @@
     </property>
     <property name="text">
      <string>Update SP</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="coordinates">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>590</y>
+      <width>281</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Coordinates:</string>
     </property>
    </widget>
   </widget>
