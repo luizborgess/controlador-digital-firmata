@@ -48,9 +48,5 @@ class Arduino:
         self.board.digital[self.pwmPort].mode = PWM
 
         # update config
-        JsonHandler.update_json(self)
+        JsonHandler.update_json(self, Ports=True)
 
-    def clear_1(self):
-        self.textBox1.setText('')
-        self.textBox2.setText('')
-        self.textBox3.setText('')

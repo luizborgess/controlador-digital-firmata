@@ -1,3 +1,6 @@
+from jsonHandler import JsonHandler
+
+
 class Control:
     def on_clicked(self):
         if self.radioButton.isChecked():
@@ -15,6 +18,7 @@ class Control:
             self.clear_2.setEnabled(False)
             self.label_11.setEnabled(False)
             self.textBox8.setEnabled(False)
+            self.updateSetPoint.setEnabled(False)
 
     def on_clicked_2(self):
         if self.radioButton_2.isChecked():
@@ -32,15 +36,18 @@ class Control:
             self.clear_2.setEnabled(True)
             self.label_11.setEnabled(True)
             self.textBox8.setEnabled(True)
+            self.updateSetPoint.setEnabled(True)
 
     def open_loop(self):
         self.pwmValue = self.textBox4.text()
         self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
         self.label_13.setText('Gain: ' + str(self.pwmValue))
+        JsonHandler.update_json(self, Control_1=True)
 
     def update_setpoint(self):
         self.sp = float(self.textBox8.text())
         self.label_17.setText("SP: " + str(self.sp))
+        ##Adicionar Jsonhandler?
 
     def set_PIDparams(self):
         self.kp = float(self.textBox5.text())
@@ -48,9 +55,11 @@ class Control:
         self.kd = float(self.textBox7.text())
         self.sp = float(self.textBox8.text())
         self.p = None
-        self.i = float(0)
-        self.d = float(0)
-        self.error_anterior = float(0)
+        self.i = None
+        self.d = None
+        self.error_anterior = None
+
+        JsonHandler.update_json(self, Control_2=True)
 
         self.label_17.setText("SP: " + str(self.sp))
 

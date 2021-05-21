@@ -36,7 +36,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.radioButton_2.toggled.connect(lambda: Control.on_clicked_2(self))
         self.set_3.clicked.connect(lambda: Control.open_loop(self))
         self.set_2.clicked.connect(lambda: Control.set_PIDparams(self))
-        self.clear.clicked.connect(lambda: Arduino.clear_1(self))
         self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
         self.updateSetPoint.clicked.connect(lambda: Control.update_setpoint(self))
 
