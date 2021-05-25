@@ -19,7 +19,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
-        uic.loadUi('GUI_en.ui', self)
+        uic.loadUi('GUI_pt.ui', self)
 
         # Load software config
         JsonHandler.json_read(self)
