@@ -1,0 +1,34 @@
+**Como Instalar?**
+===============================================
+
+**Windows**
+
+Para instalar no Windows é necessário ir diretamente no repositório
+https://github.com/luizborgess/controlador-digital-firmata
+e realizar do download do release do programa assim como na imagem abaixo:
+
+Após executado o download deve-se simplesmente executa-lo, assim já estará pronto para o uso.
+
+
+**MacOs**
+
+Para executar o programa em MacOS a melhor maneira é utilizando diretamente o Python, desta forma, primeiramente
+deve-se realizar o download/clonar o repositório, assim como na imagem abaixo:
+
+A seguir recomenda-se instalar o homebrew: https://brew.sh/, para facilitar a instalação do Python 3.9+, possuindo
+o homebrew em mãos seguimos para a instalação do Python em si abrindo terminal no Mac e inserindo a seguinte linha:
+
+brew install python
+
+Possuindo Python atualizado no MacOs, simplesmente abra o programa no diretório clonado pelo arquivo Main.py.
+
+**Linux**
+
+Para executar o programa no Linux, assume-se que o próprio Linux esteja atualizado com a versão de Python mais recente,
+possuindo isso, basta clonar o repositório assim como realizado no MacOs.
+
+Clonado o programa, basta abrir o terminal e inserir os seguintes comandos:
+
+cd pastadoprograma clonado
+
+./main.py

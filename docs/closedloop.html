@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Pesquisar &mdash; Documentação Controlador Digital firmata </title>
+  <title>Exemplo em Malha Fechada &mdash; Documentação Controlador Digital firmata </title>
   
 
   
@@ -25,7 +25,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -41,10 +40,9 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Índice" href="genindex.html" />
-    <link rel="search" title="Pesquisar" href="#" /> 
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="prev" title="Exemplo em Malha Aberta" href="openloop.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -71,7 +69,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -90,11 +88,11 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html"><strong>Como Instalar?</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="ConfiguringProject.html"><strong>Configurando o Projeto!</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="openloop.html"><strong>Exemplo em Malha Aberta</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="closedloop.html"><strong>Exemplo em Malha Fechada</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Exemplo em Malha Fechada</strong></a></li>
 </ul>
 
             
@@ -143,10 +141,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Pesquisar</li>
+      <li><strong>Exemplo em Malha Fechada</strong></li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/closedloop.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -158,23 +160,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="exemplo-em-malha-fechada">
+<h1><strong>Exemplo em Malha Fechada</strong><a class="headerlink" href="#exemplo-em-malha-fechada" title="Link permanente para este título">¶</a></h1>
+<p><strong>Exemplo em Malha Fechada e Controlador PID</strong></p>
+<p>Ao conectar o Arduino prossegue-se para configuração das portas a serem utilizadas(Por default portas A0-Entrada Analógica
+e ~D3-Saida de PWM estão selecionadas )</p>
+<p>Conferindo as configurações do software com a parte física prossegue-se para a configuração do controlador.</p>
+<p>Seleciona-se Malha Fechada para configurar o controlador PID, bom possuindo os parâmetros desejados para o seguinte sistema:</p>
+<p>#sistema#</p>
+<p>#parametros PID#</p>
+<p>#Resposta desejada#</p>
+<p>Não se esqueça do Set Point!</p>
+<p>Logo apos clica-se em Set para gravar os parâmetros PID e Setpoint desejado, em seguida para iniciar o processo
+basta clicar em Iniciar, e o mesmo iniciar além da ação na planta física o desenho do gráfico com a resposta do sensor
+de acordo com o tempo de amostragem definido na configuração da placa.</p>
+<p>Ao decorrer do processo, pode-se alterar o Set point para verificar a resposta do sistema em relação a um novo Setpoint
+para alterar basta modificar o valor na caixa de texto do set point e logo apos clicar em Atualizar SP.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openloop.html" class="btn btn-neutral float-left" title="Exemplo em Malha Aberta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
@@ -211,14 +222,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

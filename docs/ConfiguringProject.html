@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Pesquisar &mdash; Documentação Controlador Digital firmata </title>
+  <title>Configurando o Projeto! &mdash; Documentação Controlador Digital firmata </title>
   
 
   
@@ -25,7 +25,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -41,10 +40,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Índice" href="genindex.html" />
-    <link rel="search" title="Pesquisar" href="#" /> 
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="next" title="Exemplo em Malha Aberta" href="openloop.html" />
+    <link rel="prev" title="Como Instalar?" href="gettingstarted.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -71,7 +70,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -90,9 +89,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html"><strong>Como Instalar?</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConfiguringProject.html"><strong>Configurando o Projeto!</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Configurando o Projeto!</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="openloop.html"><strong>Exemplo em Malha Aberta</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="closedloop.html"><strong>Exemplo em Malha Fechada</strong></a></li>
 </ul>
@@ -143,10 +142,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Pesquisar</li>
+      <li><strong>Configurando o Projeto!</strong></li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ConfiguringProject.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -158,23 +161,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="configurando-o-projeto">
+<h1><strong>Configurando o Projeto!</strong><a class="headerlink" href="#configurando-o-projeto" title="Link permanente para este título">¶</a></h1>
+<p><strong>O protocolo Firmata</strong></p>
+<p>O programa comunica com o Arduino utilizando o protocolo Firmata, dessa forma precisamos carregar o protocolo Firmata
+uma única vez em nossa placa Arduino.</p>
+<p>Para carregar o protocolo, é necessário instalar o Arduino IDE, disponível para Windows, macOS e Linux, para baixa-lo
+é bem simples basta ir no site: <a class="reference external" href="https://www.arduino.cc/en/software">https://www.arduino.cc/en/software</a> e seguir a instalação bem simples.</p>
+<p>Possuindo o Arduino IDE, vamos carregar o protocolo Firmata no Arduino, abra o Arduino IDE e conecte seu Arduino em uma porta
+USB. Em seguida, selecione o Arduino assim como na imagem abaixo:</p>
+<p>Com o Arduino selecionado vamos em exemplos e encontramos e selecionamos o sketch StandardFirmata e clicamos em carregar
+assim como na imagem abaixo.</p>
+<p>Feito isso fechamos e esta etapa está pronta.</p>
+<p><strong>Nota:</strong> Para usuários que utilizam o Arduino pela primeira vez (Etapa opcional).
+Ao abrir o presente software, se ele não identificar o Arduino diretamente, talvez seja necessário instalar os drivers do
+Arduino.</p>
+<p>Isso geralmente acontece com os Arduinos chineses que contém o seguinte chip CH340.</p>
+<p>Segue o link para instalação do driver em Windows:
+<a class="reference external" href="http://www.blogdarobotica.com/2020/03/21/instalando-driver-serial-para-arduinos-com-chip-ch340/">http://www.blogdarobotica.com/2020/03/21/instalando-driver-serial-para-arduinos-com-chip-ch340/</a></p>
+<p><strong>Basta abrir o software!</strong></p>
+<p>Ao abrir o software ele ira identificar a sua placa Arduino automaticamente, e selecionar o endereço de porta serial
+automaticamente.</p>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openloop.html" class="btn btn-neutral float-right" title="Exemplo em Malha Aberta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gettingstarted.html" class="btn btn-neutral float-left" title="Como Instalar?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
@@ -211,14 +229,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

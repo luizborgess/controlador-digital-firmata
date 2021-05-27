@@ -1,0 +1,33 @@
+**Exemplo em Malha Aberta**
+===============================================
+
+**Primeiro teste em Malha Aberta**
+
+Com o software aberto, basta clicar em conectar, e em seguida configurar as portas físicas.
+
+Tenha em mente que o projeto físico deve ser montado de acordo com um sistema de controle, iremos utilizar uma entrada
+analógica e uma saída de PWM, o software por default vem configurado com a Entrada analógica 0 correspondente a A0, e a
+saída de sinal PWM 3 correspondente a ~D3.
+
+
+Imagem de exemplo de conexão para Malha Aberta:
+
+
+Possuímos as seguintes opções, selecionar a porta analógica/sensor, a porta PWM, e o tempo de amostragem do sistema(em ms).
+
+Apos deve-se selecionar "Set", para enviar a configuração para o Arduino.
+
+Em seguida temos duas opções: Malha aberta e malha fechada
+
+Para esse exemplo de teste em Malha aberta selecionaremos a opção de malha aberta, esta opção habilitará, a configuração
+do ganho em malha aberta.
+
+Agora para a configuração do sistema, temos o ganho em malha aberta que é dado de 0 a 1, ou melhor 0% a 100% de ganho,
+ao configura-lo, basta clicar em "Set" que o ganho já estará definido para o processo.
+
+Com tudo configurado, o próximo passo e clicar em Iniciar, o programa irá iniciar o controle e representar o sinal do sensor
+no gráfico.
+
+Durante o processo, principalmente para a identificação do sistema pode ser necessário a mudança do ganho, para isso
+simplesmente mude o valor do Ganho em malha aberta e clique em Set novamente para modificar o valor do ganho durante a
+execução.
