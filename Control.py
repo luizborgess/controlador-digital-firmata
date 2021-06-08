@@ -54,10 +54,10 @@ class Control:
         self.ki = float(self.textBox6.text())
         self.kd = float(self.textBox7.text())
         self.sp = float(self.textBox8.text())
-        self.p = None
-        self.i = None
-        self.d = None
-        self.error_anterior = None
+        self.p = 0.0
+        self.i = 0.0
+        self.d = 0.0
+        self.error_anterior = 0.0
 
         JsonHandler.update_json(self, Control_2=True)
 
