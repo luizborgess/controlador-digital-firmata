@@ -40,9 +40,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.updateSetPoint.clicked.connect(lambda: Control.update_setpoint(self))
 
         #enable cursor
-        self.enableCursor.toggled.connect(lambda: DrawGraph.cursor(self))
+        self.enableCursor.stateChanged.connect(lambda: DrawGraph.cursor(self))
+        #enable grid
+        self.enableGrid.stateChanged.connect(lambda: DrawGraph.grid(self))
         #clear graph
         self.clear_3.clicked.connect(lambda: DrawGraph.graph_clear(self))
+
 
     # define call mouse update from update graph
     mouse_update = UpdateGraph.mouse_update

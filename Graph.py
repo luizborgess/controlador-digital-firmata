@@ -16,6 +16,7 @@ class DrawGraph:
         # self.graphWidget.viewRect()
         # self.graphWidget.setConfigOption('foreground', 'k')
         self.graphWidget.setRange(padding=0, xRange=[0, self.graphRange])
+        self.graphWidget.showGrid(x=True, y=True)
         # self.proxy = pg.SignalProxy(self.graphWidget.scene().sigMouseMoved, rateLimit=60, slot=self.mouse_update)
 
     def graph(self):
@@ -43,17 +44,23 @@ class DrawGraph:
         self.curve.clear()
 
     def cursor(self):
-        if self.enableCursor.isChecked():
 
+        if self.enableCursor.isChecked():
             self.y_line = pg.InfiniteLine(angle=90, movable=False, pen='k')
             self.x_line = pg.InfiniteLine(angle=0, movable=False, pen='k')
             self.graphWidget.addItem(self.y_line, ignoreBounds=True)
             self.graphWidget.addItem(self.x_line, ignoreBounds=True)
             self.proxy = pg.SignalProxy(self.graphWidget.scene().sigMouseMoved, rateLimit=60, slot=self.mouse_update)
 
-        if not self.enableCursor.isChecked():
+        else:
             self.graphWidget.removeItem(self.y_line)
             self.graphWidget.removeItem(self.x_line)
             # possible bug
             self.proxy.disconnect()
             # self.proxy=None
+
+    def grid(self):
+        if self.enableGrid.isChecked():
+            self.graphWidget.showGrid(x=True, y=True)
+        else:
+            self.graphWidget.showGrid(x=False, y=False)

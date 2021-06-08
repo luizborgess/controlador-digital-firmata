@@ -105,7 +105,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Porta analogica/Sensor</string>
+     <string>Porta analógica/Sensor</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="textBox2">
@@ -555,22 +555,6 @@
      <string>MV:</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="enableCursor">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>610</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Habilitar cursor</string>
-    </property>
-    <property name="autoExclusive">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="updateSetPoint">
     <property name="enabled">
      <bool>false</bool>
@@ -598,6 +582,35 @@
     </property>
     <property name="text">
      <string>Coordenadas:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="enableGrid">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>630</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Habilitar grades</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="enableCursor">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>610</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Habilitar cursor</string>
     </property>
    </widget>
   </widget>
