@@ -46,6 +46,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.enableGrid.stateChanged.connect(lambda: DrawGraph.grid(self))
         #clear graph
         self.clear_3.clicked.connect(lambda: DrawGraph.graph_clear(self))
+        #show setpoint
+        self.enableSetPoint.stateChanged.connect(lambda: DrawGraph.enable_set_point(self))
 
 
     # define call mouse update from update graph

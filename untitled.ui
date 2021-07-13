@@ -36,7 +36,7 @@
        <number>10</number>
       </property>
       <property name="rightMargin">
-       <number>20</number>
+       <number>10</number>
       </property>
       <item row="0" column="0">
        <widget class="PlotWidget" name="graphWidget" native="true">
@@ -864,6 +864,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QCheckBox" name="enableSetPoint">
+        <property name="text">
+         <string>Mostrar SetPoint</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="1" column="0">
@@ -922,6 +929,9 @@
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>

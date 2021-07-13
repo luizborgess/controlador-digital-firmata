@@ -17,6 +17,8 @@ class DrawGraph:
         # self.graphWidget.setConfigOption('foreground', 'k')
         self.graphWidget.setRange(padding=0, xRange=[0, self.graphRange])
         self.graphWidget.showGrid(x=True, y=True)
+        # define initial setpoint
+        self.sp = 0
         # self.proxy = pg.SignalProxy(self.graphWidget.scene().sigMouseMoved, rateLimit=60, slot=self.mouse_update)
 
     def graph(self):
@@ -64,3 +66,13 @@ class DrawGraph:
             self.graphWidget.showGrid(x=True, y=True)
         else:
             self.graphWidget.showGrid(x=False, y=False)
+
+    def enable_set_point(self):
+
+        if self.enableSetPoint.isChecked():
+            self.sp_line = pg.InfiniteLine(angle=0, movable=False, pen='b')
+            self.graphWidget.addItem(self.sp_line, ignoreBounds=True)
+            self.sp_line.setPos(self.sp)
+
+        else:
+            self.graphWidget.removeItem(self.sp_line)

@@ -47,13 +47,18 @@ class Control:
     def update_setpoint(self):
         self.sp = float(self.textBox8.text())
         self.label_17.setText("SP: " + str(self.sp))
+        # update sp line
+        if self.enableSetPoint.isChecked():
+            self.sp_line.setPos(self.sp)
+
         ##Adicionar Jsonhandler?
 
     def set_PIDparams(self):
         self.kp = float(self.textBox5.text())
         self.ki = float(self.textBox6.text())
         self.kd = float(self.textBox7.text())
-        self.sp = float(self.textBox8.text())
+        Control.update_setpoint(self)
+        # self.sp = float(self.textBox8.text())
         self.p = 0.0
         self.i = 0.0
         self.d = 0.0

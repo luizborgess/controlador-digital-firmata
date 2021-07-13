@@ -22,3 +22,6 @@ echo "${YELLOW}install python requirements"
 python3 -m pip install -r requirements.txt
 
 echo "${YELLOW}Instalacao concluida"
+
+echo "${YELLOW}Abrindo programa"
+python3 main.py
