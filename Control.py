@@ -1,4 +1,6 @@
 from jsonHandler import JsonHandler
+import numpy as np
+import pyqtgraph as pg
 
 
 class Control:
@@ -69,8 +71,19 @@ class Control:
         self.label_17.setText("SP: " + str(self.sp))
 
     def PID_calc(self):
+
+        ##disturbance test
+        self.input_disturbance = 0
+        # Intervals for sin between 2pi e 3pi
+        if self.temp[-1] > 6.28 and self.temp[-1] < 9.42:
+            # sin wave * gain
+            self.input_disturbance = 0.5 * np.sin(self.temp[-1])
+
+        # process variable
         pv = self.board.analog[self.analogPort].read()
-        self.error = (self.sp - pv)
+        # feedback signal = pv+input_disturbance
+        # error = setpoint - feedback signal.
+        self.error = (self.sp - (pv + self.input_disturbance))
         print('error:', self.error)
         # proportional calc
         self.p = self.kp * self.error

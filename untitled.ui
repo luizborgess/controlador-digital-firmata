@@ -653,7 +653,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Porta analógica/Sensor</string>
+         <string>Porta de controle PWM</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -730,7 +730,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Porta de controle PWM</string>
+         <string>Porta analógica/Sensor</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

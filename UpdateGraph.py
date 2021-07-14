@@ -4,7 +4,6 @@ import numpy as np
 
 class UpdateGraph:
     def update_plot_data(self):
-
         # update ate o graph range
         if self.y.size < (self.graphRange / self.sampleTimeSec):
             mv_value = self.board.analog[self.analogPort].read()
@@ -13,6 +12,10 @@ class UpdateGraph:
                 self.temp = np.append(self.temp, 0)
             else:
                 self.temp = np.append(self.temp, (self.temp[-1] + self.sampleTimeSec))
+
+
+            #self.y2[-1] = self.input_disturbance
+
 
         # update alem do graph range
         else:
@@ -30,13 +33,19 @@ class UpdateGraph:
             self.temp = np.append(self.temp, (self.temp[-1] + self.sampleTimeSec))
 
         self.label_18.setText("MV: " + str(mv_value))
+
         self.curve.setData(self.temp, self.y)
 
-        # esse if nao esta bom, criar update plotdata especifico para pid
+        #if not good placed
+        #IF for only PID uses
         if self.radioButton_2.isChecked():
             Control.PID_calc(self)
             self.pwmValue = self.output / 100
             self.board.digital[int(self.pwmPort)].write(self.pwmValue)
+
+            #draw disturbance only when using PID
+            self.y2 = np.append(self.y2, self.input_disturbance)
+            self.curve2.setData(self.temp, self.y2)
 
     def mouse_update(self, e):
         pos = e[0]

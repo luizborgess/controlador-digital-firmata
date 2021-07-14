@@ -23,8 +23,14 @@ class DrawGraph:
 
     def graph(self):
         self.graphWidget.enableAutoRange(axis='y', enable=False)
+        #pen 1
         pen = pg.mkPen(color=(0, 136, 255), width=2)
+        #pen 2
+        pen2=pg.mkPen(color='r', width=2)
+        #curve 1 response
         self.curve = self.graphWidget.plot(pen=pen)
+        #curve 2 disturbance
+        self.curve2 = self.graphWidget.plot(pen=pen2)
 
         self.timer = QtCore.QTimer()
         # sample time
@@ -32,6 +38,7 @@ class DrawGraph:
         self.timer.timeout.connect(lambda: UpdateGraph.update_plot_data(self))
         self.timer.start()
         self.y = np.array([])
+        self.y2=np.array([])
         # tempo
         self.temp = np.array([])
 
@@ -68,9 +75,11 @@ class DrawGraph:
             self.graphWidget.showGrid(x=False, y=False)
 
     def enable_set_point(self):
+        #colours
+        #single-character string representing color (b, g, r, c, m, y, k, w)
 
         if self.enableSetPoint.isChecked():
-            self.sp_line = pg.InfiniteLine(angle=0, movable=False, pen='b')
+            self.sp_line = pg.InfiniteLine(angle=0, movable=False, pen='g')
             self.graphWidget.addItem(self.sp_line, ignoreBounds=True)
             self.sp_line.setPos(self.sp)
 

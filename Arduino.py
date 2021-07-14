@@ -49,4 +49,3 @@ class Arduino:
 
         # update config
         JsonHandler.update_json(self, Ports=True)
-
