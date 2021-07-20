@@ -57,3 +57,11 @@ class JsonHandler:
         if path[0] != '':
             w = np.column_stack((self.temp, self.y))
             np.savetxt(path[0], w, delimiter=",")
+
+    def load_csv(self):
+        path = QFileDialog.getOpenFileName(self, 'Load CSV', os.getenv('HOME'), 'CSV(*.csv)')
+        if path[0] != '':
+            my_data = np.genfromtxt(path[0], delimiter=',')
+            self.csv_x=my_data[:, 0]
+            self.csv_y=my_data[:, 1]
+            self.got_csv=True

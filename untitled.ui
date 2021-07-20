@@ -304,22 +304,6 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="updateSetPoint">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>Atualizar SP</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_9">
         <property name="enabled">
@@ -377,7 +361,23 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="2">
+      <item row="0" column="2">
+       <widget class="QPushButton" name="set_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Set</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
        <widget class="QPushButton" name="clear_2">
         <property name="enabled">
          <bool>false</bool>
@@ -393,8 +393,8 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="set_2">
+      <item row="2" column="2">
+       <widget class="QPushButton" name="updateSetPoint">
         <property name="enabled">
          <bool>false</bool>
         </property>
@@ -405,7 +405,14 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Set</string>
+         <string>Atualizar SP</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="loadCSV">
+        <property name="text">
+         <string>Carregar csv</string>
         </property>
        </widget>
       </item>

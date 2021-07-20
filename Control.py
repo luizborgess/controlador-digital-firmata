@@ -4,6 +4,10 @@ import pyqtgraph as pg
 
 
 class Control:
+
+    def __init__(self):
+        self.got_csv = False
+
     def on_clicked(self):
         if self.radioButton.isChecked():
             self.label_10.setEnabled(True)
@@ -72,12 +76,15 @@ class Control:
 
     def PID_calc(self):
 
-        ##disturbance test
-        self.input_disturbance = 0
-        # Intervals for sin between 2pi e 3pi
-        if self.temp[-1] > 6.28 and self.temp[-1] < 9.42:
-            # sin wave * gain
-            self.input_disturbance = 0.5 * np.sin(self.temp[-1])
+        ##disturbance process.
+
+        index = np.size(self.temp) - 1
+        if self.got_csv and index<np.size(self.csv_y):
+            self.input_disturbance=self.csv_y[index]
+        else:
+            self.input_disturbance=0
+            self.got_csv=False
+
 
         # process variable
         pv = self.board.analog[self.analogPort].read()

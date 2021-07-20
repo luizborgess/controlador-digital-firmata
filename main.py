@@ -50,6 +50,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.enableSetPoint.stateChanged.connect(lambda: DrawGraph.enable_set_point(self))
         #save csv
         self.saveCsv.clicked.connect(lambda: JsonHandler.save_csv(self))
+        #load csv
+        self.loadCSV.clicked.connect(lambda: JsonHandler.load_csv(self))
 
 
     # define call mouse update from update graph
