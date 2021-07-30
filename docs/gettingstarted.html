@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pt" >
+<html class="writer-html5" lang="pt-BR" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Como Instalar? &mdash; Documentação Controlador Digital firmata </title>
+  <title>Como Instalar? &mdash; documentação Controlador Digital firmata </title>
   
 
   
@@ -41,9 +41,9 @@
 
     
     <link rel="index" title="Índice" href="genindex.html" />
-    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="search" title="Buscar" href="search.html" />
     <link rel="next" title="Configurando o Projeto!" href="ConfiguringProject.html" />
-    <link rel="prev" title="Welcome to Controlador Digital firmata’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Documentação Controlador Digital Firmata" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -71,7 +71,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -88,12 +88,19 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Sumário:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Como Instalar?</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Como Instalar?</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos">MacOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ConfiguringProject.html"><strong>Configurando o Projeto!</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="openloop.html"><strong>Exemplo em Malha Aberta</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="closedloop.html"><strong>Exemplo em Malha Fechada</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cursor.html"><strong>Recursos Disponíveis</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html"><strong>Recursos Avançados</strong></a></li>
 </ul>
 
             
@@ -148,7 +155,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/gettingstarted.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/gettingstarted.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -163,24 +170,64 @@
             
   <div class="section" id="como-instalar">
 <h1><strong>Como Instalar?</strong><a class="headerlink" href="#como-instalar" title="Link permanente para este título">¶</a></h1>
-<p><strong>Windows</strong></p>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Link permanente para este título">¶</a></h2>
 <p>Para instalar no Windows é necessário ir diretamente no repositório
 <a class="reference external" href="https://github.com/luizborgess/controlador-digital-firmata">https://github.com/luizborgess/controlador-digital-firmata</a>
 e realizar do download do release do programa assim como na imagem abaixo:</p>
-<p>Após executado o download deve-se simplesmente executa-lo, assim já estará pronto para o uso.</p>
-<p><strong>MacOs</strong></p>
-<p>Para executar o programa em MacOS a melhor maneira é utilizando diretamente o Python, desta forma, primeiramente
-deve-se realizar o download/clonar o repositório, assim como na imagem abaixo:</p>
-<p>A seguir recomenda-se instalar o homebrew: <a class="reference external" href="https://brew.sh/">https://brew.sh/</a>, para facilitar a instalação do Python 3.9+, possuindo
-o homebrew em mãos seguimos para a instalação do Python em si abrindo terminal no Mac e inserindo a seguinte linha:</p>
-<p>brew install python</p>
-<p>Possuindo Python atualizado no MacOs, simplesmente abra o programa no diretório clonado pelo arquivo Main.py.</p>
-<p><strong>Linux</strong></p>
-<p>Para executar o programa no Linux, assume-se que o próprio Linux esteja atualizado com a versão de Python mais recente,
-possuindo isso, basta clonar o repositório assim como realizado no MacOs.</p>
-<p>Clonado o programa, basta abrir o terminal e inserir os seguintes comandos:</p>
-<p>cd pastadoprograma clonado</p>
-<p>./main.py</p>
+<img alt="_images/install1.png" src="_images/install1.png" />
+<p>Inserir outra imagem aqui;</p>
+<p>Após realizado o download deve-se simplesmente executa-lo, assim já estará pronto para o uso.</p>
+</div>
+<div class="section" id="macos">
+<h2>MacOs<a class="headerlink" href="#macos" title="Link permanente para este título">¶</a></h2>
+<p>Para proceder com a instalação no MacOs, é necessário abrir o terminal, utilizar o comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;pasta na qual deseja instalar&gt;
+
+curl -JLO https://github.com/luizborgess/controlador-digital-firmata/archive/main.zip
+
+unzip controlador-digital-firmata-main.zip
+
+<span class="nb">cd</span> controlador-digital-firmata-main
+
+chmod <span class="m">755</span> install_mac.sh
+
+./install_mac.sh
+</pre></div>
+</div>
+<p>Esse script acima realiza do download do software e instala <a class="reference external" href="https://brew.sh/">Homebrew</a> e o Python3.x e todas as
+dependências necessárias para utilizar-lo.</p>
+<p>Apos instalado o software irá iniciar automaticamente.</p>
+<p>Para iniciar utilize o comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;pasta-do-programa&gt;
+python3 main.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Link permanente para este título">¶</a></h2>
+<p>Para executar o <em>software</em> no Linux, assume-se que o próprio Linux esteja atualizado com a versão de Python3 mais recente,
+possuindo isso, basta utilizar os comandos abaixo para baixar o software e instalar as dependências:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/luizborgess/controlador-digital-firmata/archive/main.zip
+
+unzip main.zip
+
+<span class="nb">cd</span> controlador-digital-firmata-main
+
+python3 -m pip install -r requirements.txt
+
+sudo apt-get install --reinstall libxcb-xinerama0
+
+python3 main.py
+</pre></div>
+</div>
+<p>Para abrir o <em>software</em> insira os  seguintes comandos no terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;pasta-do-programa&gt;
+
+./main.py
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -189,8 +236,8 @@ possuindo isso, basta clonar o repositório assim como realizado no MacOs.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ConfiguringProject.html" class="btn btn-neutral float-right" title="Configurando o Projeto!" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Controlador Digital firmata’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ConfiguringProject.html" class="btn btn-neutral float-right" title="Configurando o Projeto!" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Documentação Controlador Digital Firmata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
     </div>
 
   <hr/>
@@ -204,11 +251,11 @@ possuindo isso, basta clonar o repositório assim como realizado no MacOs.</p>
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>

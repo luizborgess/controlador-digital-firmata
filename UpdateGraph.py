@@ -55,4 +55,4 @@ class UpdateGraph:
             mousePoint = self.graphWidget.getPlotItem().vb.mapSceneToView(pos)
             self.y_line.setPos(mousePoint.x())
             self.x_line.setPos(mousePoint.y())
-            self.coordinates.setText(f'Coordinates X: {str(round(mousePoint.x(), 4))} Y: {str(round(mousePoint.y(), 4))}' )
+            self.coordinates.setText(f'Coordenadas X: {str(round(mousePoint.x(), 4))} Y: {str(round(mousePoint.y(), 4))}' )

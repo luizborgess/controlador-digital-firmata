@@ -79,7 +79,8 @@ class DrawGraph:
         #single-character string representing color (b, g, r, c, m, y, k, w)
 
         if self.enableSetPoint.isChecked():
-            self.sp_line = pg.InfiniteLine(angle=0, movable=False, pen='g')
+            pen3 = pg.mkPen(color=(0, 128, 128), width=2)
+            self.sp_line = pg.InfiniteLine(angle=0, movable=False, pen=pen3)
             self.graphWidget.addItem(self.sp_line, ignoreBounds=True)
             self.sp_line.setPos(self.sp)
 

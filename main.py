@@ -53,7 +53,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #load csv
         self.loadCSV.clicked.connect(lambda: JsonHandler.load_csv(self))
 
-
+        self.got_csv = False
     # define call mouse update from update graph
     mouse_update = UpdateGraph.mouse_update
 

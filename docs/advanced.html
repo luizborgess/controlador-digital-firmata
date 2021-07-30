@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="pt" >
+<html class="writer-html5" lang="pt-BR" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; Documentação Controlador Digital firmata </title>
+  <title>Recursos Avançados &mdash; documentação Controlador Digital firmata </title>
   
 
   
@@ -41,7 +41,8 @@
 
     
     <link rel="index" title="Índice" href="genindex.html" />
-    <link rel="search" title="Pesquisar" href="search.html" /> 
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="prev" title="Recursos Disponíveis" href="cursor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -69,7 +70,7 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,11 +87,18 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption"><span class="caption-text">Sumário:</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html"><strong>Como Instalar?</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="ConfiguringProject.html"><strong>Configurando o Projeto!</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="openloop.html"><strong>Exemplo em Malha Aberta</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="closedloop.html"><strong>Exemplo em Malha Fechada</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cursor.html"><strong>Recursos Disponíveis</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Recursos Avançados</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-csv-py">Create_csv.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-csv-py">Plot_csv.py</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -139,13 +147,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li><strong>Recursos Avançados</strong></li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/graph.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/advanced.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
           
         
       </li>
@@ -158,12 +166,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="recursos-avancados">
+<h1><strong>Recursos Avançados</strong><a class="headerlink" href="#recursos-avancados" title="Link permanente para este título">¶</a></h1>
+<p>Alguns recursos extras estão incluídos no software dentro da pasta útil, nesta contem scripts em Python, para
+auxiliar alguns recursos avançados no software, são eles create_csv.py e plot_csv.py.</p>
+<div class="section" id="create-csv-py">
+<h2>Create_csv.py<a class="headerlink" href="#create-csv-py" title="Link permanente para este título">¶</a></h2>
+<p>Este arquivo permite que se crie um perfil de distúrbio para aplicar no software pela opção carregar csv, esta
+opção irá carregar o arquivo csv, e plotar e aplicar no sistema como um distúrbio dentro do intervalo selecionado na
+criação do mesmo.</p>
+</div>
+<div class="section" id="plot-csv-py">
+<h2>Plot_csv.py<a class="headerlink" href="#plot-csv-py" title="Link permanente para este título">¶</a></h2>
+<p>Como o software possui a opção de salvar todos os dados adquiridos durante um experimento em um arquivo csv, ele também
+possui um script para plota-los em um gráfico posteriormente se desejado, basta inserir a localização do arquivo csv
+salvo que o script irá plotar o csv em um gráfico para melhor visualização.</p>
+</div>
+</div>
+
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cursor.html" class="btn btn-neutral float-left" title="Recursos Disponíveis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
 
   <hr/>
 
@@ -176,11 +204,11 @@
     
     
     
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
     
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
     
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
