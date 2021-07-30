@@ -65,3 +65,4 @@ class JsonHandler:
             self.csv_x=my_data[:, 0]
             self.csv_y=my_data[:, 1]
             self.got_csv=True
+            self.selectedCSV.setText(os.path.basename(path[0]))

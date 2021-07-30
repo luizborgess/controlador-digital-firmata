@@ -21,7 +21,7 @@ class Arduino:
     def define_board(self):
         self.connect.setEnabled(False)
         self.board = Ard(self.COMports[self.listport.currentIndex()])  # change com port
-        print("Communication Successfully started")
+
         self.checkBox.setStyleSheet("QCheckBox::indicator"
                                     "{"
                                     "background-color : lightgreen;"
@@ -39,10 +39,6 @@ class Arduino:
         self.sampleTime = float(self.textBox3.text())
         # Time in seconds
         self.sampleTimeSec = self.sampleTime / 1000
-
-        print("analog port:", self.analogPort)
-        print("Pwm port", self.pwmPort)
-        print("Sample Time", self.sampleTime)
 
         self.board.analog[self.analogPort].mode = INPUT
         self.board.digital[self.pwmPort].mode = PWM

@@ -1,6 +1,5 @@
 from jsonHandler import JsonHandler
 import numpy as np
-import pyqtgraph as pg
 
 
 class Control:
@@ -25,6 +24,7 @@ class Control:
             self.label_11.setEnabled(False)
             self.textBox8.setEnabled(False)
             self.updateSetPoint.setEnabled(False)
+            self.loadCSV.setEnabled(False)
 
     def on_clicked_2(self):
         if self.radioButton_2.isChecked():
@@ -43,6 +43,7 @@ class Control:
             self.label_11.setEnabled(True)
             self.textBox8.setEnabled(True)
             self.updateSetPoint.setEnabled(True)
+            self.loadCSV.setEnabled(True)
 
     def open_loop(self):
         self.pwmValue = self.textBox4.text()
@@ -74,24 +75,30 @@ class Control:
 
         self.label_17.setText("SP: " + str(self.sp))
 
+    def clear_PIDparams(self):
+        self.textBox5.clear()
+        self.textBox6.clear()
+        self.textBox7.clear()
+        self.textBox8.clear()
+        self.selectedCSV.clear()
+        self.got_csv = False
+
     def PID_calc(self):
 
         ##disturbance process.
 
         index = np.size(self.temp) - 1
-        if self.got_csv and index<np.size(self.csv_y):
-            self.input_disturbance=self.csv_y[index]
+        if self.got_csv and index < np.size(self.csv_y):
+            self.input_disturbance = self.csv_y[index]
         else:
-            self.input_disturbance=0
-            self.got_csv=False
-
+            self.input_disturbance = 0
+            self.got_csv = False
 
         # process variable
         pv = self.board.analog[self.analogPort].read()
         # feedback signal = pv+input_disturbance
         # error = setpoint - feedback signal.
         self.error = (self.sp - (pv + self.input_disturbance))
-        print('error:', self.error)
         # proportional calc
         self.p = self.kp * self.error
 

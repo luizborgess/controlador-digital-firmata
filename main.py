@@ -19,8 +19,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
-        #uic.loadUi('GUI_pt.ui', self)
-        uic.loadUi('untitled.ui',self)
+        # uic.loadUi('GUI_pt.ui', self)
+        uic.loadUi('pt_br.ui', self)
 
         # Load software config
         JsonHandler.json_read(self)
@@ -40,20 +40,30 @@ class MainWindow(QtWidgets.QMainWindow):
         self.pause.clicked.connect(lambda: DrawGraph.graph_pause(self))
         self.updateSetPoint.clicked.connect(lambda: Control.update_setpoint(self))
 
-        #enable cursor
+        # enable cursor
         self.enableCursor.stateChanged.connect(lambda: DrawGraph.cursor(self))
-        #enable grid
+        # enable grid
         self.enableGrid.stateChanged.connect(lambda: DrawGraph.grid(self))
-        #clear graph
+        # clear graph
         self.clear_3.clicked.connect(lambda: DrawGraph.graph_clear(self))
-        #show setpoint
+        # show setpoint
         self.enableSetPoint.stateChanged.connect(lambda: DrawGraph.enable_set_point(self))
-        #save csv
+        # save csv
         self.saveCsv.clicked.connect(lambda: JsonHandler.save_csv(self))
-        #load csv
+        # load csv
         self.loadCSV.clicked.connect(lambda: JsonHandler.load_csv(self))
+        # clear pid params
+        self.clear_2.clicked.connect(lambda: Control.clear_PIDparams(self))
+
+        # set tooltip
+        self.label_17.setToolTip("SetPoint")
+        self.label_18.setToolTip("Variável de Processo")
+        self.label_14.setToolTip("Proporcional")
+        self.label_15.setToolTip("Integrador")
+        self.label_16.setToolTip("Derivativo")
 
         self.got_csv = False
+
     # define call mouse update from update graph
     mouse_update = UpdateGraph.mouse_update
 
