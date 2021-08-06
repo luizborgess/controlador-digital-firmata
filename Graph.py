@@ -44,6 +44,8 @@ class DrawGraph:
 
         # plot position
         self.ptr = 0.0
+        if self.radioButton.isChecked():
+            self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
 
     def graph_pause(self):
         self.timer.stop()

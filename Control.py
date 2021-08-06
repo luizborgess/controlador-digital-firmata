@@ -47,7 +47,7 @@ class Control:
 
     def open_loop(self):
         self.pwmValue = self.textBox4.text()
-        self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
+        #self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
         self.label_13.setText('Gain: ' + str(self.pwmValue))
         JsonHandler.update_json(self, Control_1=True)
 
