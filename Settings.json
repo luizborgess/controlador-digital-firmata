@@ -1,1 +1,1 @@
-{"AnalogPort": "0", "PwmPort": "3", "SampleTime": "100.0", "GraphRange": 20, "OpenLoopGain": "0.6", "P": "2.0", "I": "0.005", "D": "0.001", "SP": "0.0"}
+{"AnalogPort": "0", "PwmPort": "3", "SampleTime": "100.0", "GraphRange": 20, "OpenLoopGain": "0", "P": "0.5", "I": "10.0", "D": "1.0", "SP": "2.0"}

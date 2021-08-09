@@ -87,8 +87,8 @@ class Control:
 
     def PID_calc(self):
 
+        print(self.sampleTime)
         ##disturbance process.
-
         index = np.size(self.temp) - 1
         if self.got_csv and index < np.size(self.csv_y):
             self.input_disturbance = self.csv_y[index]
@@ -105,10 +105,10 @@ class Control:
         self.p = self.kp * self.error
 
         # Integrative calc
-        self.i = self.i + (self.ki * (self.sampleTime / 2) * (self.error + self.error_anterior))
+        self.i = self.i + (self.ki * (self.sampleTime/1000) * self.error)
 
         # Derivative calc
-        self.d = ((self.error - self.error_anterior) * self.kd) / self.sampleTime
+        self.d = ((self.error - self.error_anterior) * self.kd) / (self.sampleTime/1000)
 
         # integrative max value
         if self.i > 100: self.i = 100
