@@ -15,10 +15,11 @@ class DrawGraph:
         # self.graphWidget.setConfigOption(background='None')
         # self.graphWidget.viewRect()
         # self.graphWidget.setConfigOption('foreground', 'k')
-        self.graphWidget.setRange(padding=0, xRange=[0, self.graphRange])
+        self.graphWidget.setRange(padding=0, xRange=[0, self.graphRange], yRange=[0, 5])
         self.graphWidget.showGrid(x=True, y=True)
         # define initial setpoint
         self.sp = 0
+        self.graph_started=False
         # self.proxy = pg.SignalProxy(self.graphWidget.scene().sigMouseMoved, rateLimit=60, slot=self.mouse_update)
 
     def graph(self):
@@ -42,6 +43,7 @@ class DrawGraph:
         # tempo
         self.temp = np.array([])
 
+        self.graph_started=True
         # plot position
         self.ptr = 0.0
         if self.radioButton.isChecked():

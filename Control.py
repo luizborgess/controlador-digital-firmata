@@ -49,6 +49,8 @@ class Control:
         self.pwmValue = self.textBox4.text()
         #self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
         self.label_13.setText('Gain: ' + str(self.pwmValue))
+        if self.graph_started:
+            self.board.digital[int(self.pwmPort)].write(float(self.pwmValue))
         JsonHandler.update_json(self, Control_1=True)
 
     def update_setpoint(self):
@@ -95,10 +97,10 @@ class Control:
             self.got_csv = False
 
         # process variable
-        pv = self.board.analog[self.analogPort].read()
+        pv = self.mv_value
         # feedback signal = pv+input_disturbance
         # error = setpoint - feedback signal.
-        self.error = (self.sp - (pv + self.input_disturbance))
+        self.error = (self.sp - (pv - self.input_disturbance))
         # proportional calc
         self.p = self.kp * self.error
 
