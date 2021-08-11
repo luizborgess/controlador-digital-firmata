@@ -46,8 +46,7 @@ class UpdateGraph:
 
             if self.got_csv:
                 #draw disturbance only when using PID
-
-                self.y2 = np.append(self.y2, self.input_disturbance)
+                self.y2 = np.append(self.y2, self.csv_y[self.time_index])
                 self.curve2.setData(self.temp, self.y2)
 
     def mouse_update(self, e):

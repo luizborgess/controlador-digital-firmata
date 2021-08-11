@@ -54,11 +54,18 @@ class Control:
         JsonHandler.update_json(self, Control_1=True)
 
     def update_setpoint(self):
-        self.sp = float(self.textBox8.text())
+
+        if self.got_csv:
+            self.sp = float(self.textBox8.text())+self.offset
+        else:
+            self.sp = float(self.textBox8.text())
         self.label_17.setText("SP: " + str(self.sp))
+
         # update sp line
         if self.enableSetPoint.isChecked():
             self.sp_line.setPos(self.sp)
+
+
 
         ##Adicionar Jsonhandler?
 
@@ -87,14 +94,19 @@ class Control:
 
     def PID_calc(self):
 
-        print(self.sampleTime)
         ##disturbance process.
-        index = np.size(self.temp) - 1
-        if self.got_csv and index < np.size(self.csv_y):
-            self.input_disturbance = self.csv_y[index]
-        else:
+        self.time_index = np.size(self.temp)
+        # ta errado
+
+        if self.time_index >= np.size(self.csv_y):
             self.input_disturbance = 0
             self.got_csv = False
+
+        if self.got_csv:
+            if self.limite_inf < self.temp[-1] < self.limite_sup:
+                self.input_disturbance = self.csv_y[self.time_index]-self.offset
+            else:
+                self.input_disturbance = 0
 
         # process variable
         pv = self.mv_value
