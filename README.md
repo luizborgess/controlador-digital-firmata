@@ -74,10 +74,15 @@ cd <pasta-do-programa>
 # Dependencies
 
 Python 3.9+
+
 pyFirmata 1.1.0
+
 numpy 1.20.3
+
 pyqtgraph 0.12.1
+
 PyQt5 5.15+
+
 pyserial 3.5
 
 # License
