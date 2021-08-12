@@ -9,9 +9,13 @@ from PyQt5.QtWidgets import QMessageBox
 
 class JsonHandler:
 
-    def json_read(self):
+    def json_read_locale(self):
         with open('Settings.json', 'r') as json_file:
             self.data = json.load(json_file)
+        json_file.close()
+        return self.data['Locale']
+
+    def json_read(self):
 
         # Read port settings
         self.textBox1.setText(self.data['AnalogPort'])
@@ -30,7 +34,6 @@ class JsonHandler:
 
         # read disturbance file path
         self.file_path = self.data['FilePath']
-        json_file.close()
 
     def update_json(self, Ports=None, Control_1=None, Control_2=None):
         if Ports:

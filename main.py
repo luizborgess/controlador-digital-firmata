@@ -19,8 +19,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
-        # uic.loadUi('GUI_pt.ui', self)
-        uic.loadUi('pt_br.ui', self)
+        Locale=JsonHandler.json_read_locale(self)
+        uic.loadUi(Locale, self)
 
         # Load software config
         JsonHandler.json_read(self)
