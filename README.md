@@ -68,7 +68,7 @@ Para abrir o software insira os seguintes comandos no terminal:
 ```
 cd <pasta-do-programa>
 
-./main.py
+python3 main.py
 ```
 
 # Dependencies
