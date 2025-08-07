@@ -1,33 +1,31 @@
 ![License: GPL v3](https://img.shields.io/github/license/luizborgess/controlador-digital-firmata)
 [![Python](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
-
-# Controlador Digital Firmata
- 
+# Firmata Digital Controller
 
 # Overview
 
- Controlador digital Firmata é um software didático de controle utilizado em conjunto com uma placa Arduino. 
- 
- O presente software foi desenvolvido com o intuito de ser utilizado em aulas práticas de controle, e para isto, com ele é possível realizar testes em malha aberta e malha fechada através de PID.
+Firmata Digital Controller is an educational control software used in conjunction with an Arduino board.
+
+This software was developed to be used in practical control systems classes, and with it, it is possible to perform open-loop and closed-loop tests using PID.
 
 ![](Images/4.gif)
 
 # Docs
 
-Acesse a documentação através do [link](https://luizborgess.github.io/controlador-digital-firmata/).
+Access the documentation through this [link](https://luizborgess.github.io/controlador-digital-firmata/).
 
 # Installation
 
-## Windows 
+## Windows
 
-Baixe o arquivo executavel ou o arquivo zip através deste [link](https://github.com/luizborgess/controlador-digital-firmata/releases)
+Download the executable file or the zip file from this [link](https://github.com/luizborgess/controlador-digital-firmata/releases)
 
-## MacOs
+## MacOS
 
-Para proceder com a instalação no MacOs, é necessário abrir o terminal, utilizar o comando:
+To proceed with the installation on MacOS, open the terminal and use the following commands:
 ```
-cd <pasta_na_qual_deseja_instalar>
+cd <folder_where_you_want_to_install>
 
 curl -JLO https://github.com/luizborgess/controlador-digital-firmata/archive/main.zip
 
@@ -40,17 +38,16 @@ chmod 755 install_mac.sh
 ./install_mac.sh
 ```
 
-Para iniciar utilize o comando:
+To start, use the command:
 
 ```
-cd <pasta-do-programa>
+cd <program-folder>
 python3 main.py
 ```
 
-
 ## Linux
 
-Para executar o software no Linux, assume-se que o próprio Linux esteja atualizado com a versão de Python3 mais recente, possuindo isso, basta utilizar os comandos abaixo para baixar o software e instalar as dependências:
+To run the software on Linux, it is assumed that Linux is already updated with the latest version of Python3. If so, just use the commands below to download the software and install the dependencies:
 
 ```
 wget https://github.com/luizborgess/controlador-digital-firmata/archive/main.zip
@@ -66,11 +63,10 @@ sudo apt-get install --reinstall libxcb-xinerama0
 python3 main.py
 ```
 
-Para abrir o software insira os seguintes comandos no terminal:
-
+To open the software, enter the following commands in the terminal:
 
 ```
-cd <pasta-do-programa>
+cd <program-folder>
 
 python3 main.py
 ```
@@ -92,6 +88,3 @@ pyserial 3.5
 # License
 
 MIT license
-
-
-
