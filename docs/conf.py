@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Controlador Digital firmata'
-copyright = '2021, Luiz'
+copyright = '2025, Luiz'
 author = 'Luiz'
 
 
